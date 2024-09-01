@@ -1,74 +1,8 @@
-// import axios from "axios";
-// import { useContext, useState } from "react";
-// import { Link, Navigate } from "react-router-dom";
-// import { UserContext } from "../UserContext";
-
-// function LoginPage() {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [redirect, setRedirect] = useState(false);
-
-//   const {setUser} = useContext(UserContext);
-
-//   async function handleLoginSubmit(ev) {
-//     ev.preventDefault();
-//     try{
-//       const response = await axios.post('/login', {email, password});
-//       // const user = response.data;
-//       setUser(response.data);
-//       alert("Login Successful");
-//       setRedirect(true);
-//     }catch(error){
-//       alert("Login failed");
-//     }
-//   }
-
-//   if(redirect) {
-//     return <Navigate to={'/'}/>
-//   }
-
-//   return (
-//     <div className="mt-32 grow flex items-center my-auto justify-around">
-//       <div>
-//         <h1 className="text-4xl text-center mb-4">Login</h1>
-//         <form action="" className="max-w-md mx-auto" onSubmit={handleLoginSubmit}>
-//         {/* Listens for changes in an input field (probably an email field).
-//         Whenever the user types, it grabs the new value they entered.
-//         It updates a variable (likely called email) within the component to store the new email address. */}
-//           <input
-//             type="email"
-//             placeholder="example@gmail.com"
-//             value={email}
-//             onChange={(ev) => setEmail(ev.target.value)}
-//           />
-//           <input
-//             type="password"
-//             placeholder="password"
-//             value={password}
-//             onChange={(ev) => setPassword(ev.target.value)}
-//           />
-//           <button className="primary">LOGIN</button>
-//           <div className="text-center py-2">
-//             Dont have an account yet?{" "}
-//             <Link
-//               to={"/register"}
-//               className="text-gray-400 underline font-semibold"
-//             >
-//               Register now
-//             </Link>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default LoginPage;
-
-import axios from "axios";
 import { useContext, useState } from "react";
+
 import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
+import apiClient from "../api/axios"; // Import the centralized apiClient
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -79,7 +13,7 @@ function LoginPage() {
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
     try {
-      const response = await axios.post('/login', { email, password });
+      const response = await apiClient.post('/login', { email, password }); // Use apiClient instead of axios
       setUser(response.data);
       alert("Login Successful");
       setRedirect(true);
@@ -115,7 +49,7 @@ function LoginPage() {
             LOGIN
           </button>
           <div className="text-center py-2">
-            Don't have an account yet?{" "}
+            Dont have an account yet?{" "}
             <Link
               to={"/register"}
               className="text-primary underline font-semibold"

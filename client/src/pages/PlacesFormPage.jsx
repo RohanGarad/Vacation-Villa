@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Perks from "../Perks";
 import PhotosUploader from "../PhotosUploader";
-import axios from "axios";
+import apiClient from "../api/axios";
+// import axios from "axios";
 import AccountNav from "../AccountNav";
 import { Navigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -25,7 +26,7 @@ export default function PlacesFormPage() {
     if (!id) {
       return ;
     }
-    axios.get('/places/'+id).then(response => { //fetching
+    apiClient.get('/places/'+id).then(response => { //fetching
       const {data} = response;
       setTitle(data.title);
       setAddress(data.address);
@@ -61,12 +62,12 @@ export default function PlacesFormPage() {
   async function savePlace(ev) {
     if(id) {
       ev.preventDefault();
-      await axios.put('/places', {id, title, address, perks, addedPhotos, description, extraInfo, checkIn, checkOut, maxGuests, price});
+      await apiClient.put('/places', {id, title, address, perks, addedPhotos, description, extraInfo, checkIn, checkOut, maxGuests, price});
       setRedirect(true);
     }
     else {
       ev.preventDefault();
-      await axios.post('/places', {title, address, perks, addedPhotos, description, extraInfo, checkIn, checkOut, maxGuests, price});
+      await apiClient.post('/places', {title, address, perks, addedPhotos, description, extraInfo, checkIn, checkOut, maxGuests, price});
       setRedirect(true);
     }
   }

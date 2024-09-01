@@ -1,4 +1,5 @@
-import axios from 'axios';
+// import axios from 'axios';
+import apiClient from "../api/axios";
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom'
@@ -11,7 +12,7 @@ function BookingPage() {
   const [booking, setBooking] = useState(null);
   useEffect(() => {
     if(id) {
-      axios.get('/bookings').then(response => {
+      apiClient.get('/bookings').then(response => {
         const foundBooking = response.data.find(({_id}) => _id === id);
         if(foundBooking) {
           setBooking(foundBooking);

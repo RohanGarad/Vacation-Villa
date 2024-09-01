@@ -1,7 +1,8 @@
 import { useState } from "react";
 import AccountNav from "../AccountNav";
 import { useEffect } from "react";
-import axios from "axios";
+import apiClient from "../api/axios";
+// import axios from "axios";
 import PlaceImg from "../PlaceImg";
 import { Link } from "react-router-dom";
 import BookingDates from "../BookingDates";
@@ -10,7 +11,7 @@ function BookingsPage() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    axios.get("/bookings").then((response) => {
+    apiClient.get("/bookings").then((response) => {
       setBookings(response.data);
     });
   }, []);
