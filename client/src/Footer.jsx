@@ -17,7 +17,7 @@ function Footer() {
             
             
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/rohan_garad_98"
               className="text-gray-400 hover:text-gray-300"
               aria-label="Instagram"
             >
@@ -79,7 +79,7 @@ function Footer() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/rohangarad"
               className="text-gray-400 hover:text-gray-300"
               aria-label="LinkedIn"
             >
@@ -195,7 +195,7 @@ function Footer() {
               </svg>
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/rohangarad"
               className="text-gray-400 hover:text-gray-300"
               aria-label="GitHub"
             >
