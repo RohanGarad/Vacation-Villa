@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AccountNav from "../AccountNav";
 import { useEffect, useState } from "react";
 import apiClient from "../api/axios";
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 // import axios from "axios";
 
 function PlacesPage() {
@@ -48,7 +49,8 @@ function PlacesPage() {
                 {place.photos.length > 0 && (
                   <img
                     className="w-full h-64 object-cover rounded-lg"
-                    src={"http://localhost:4000/uploads/" + place.photos[0]}
+                    // src={"http://localhost:4000/uploads/" + place.photos[0]}
+                    src={`${apiUrl}/uploads/${place.photos[0]}`}
                     alt="Place"
                   />
                 )}
