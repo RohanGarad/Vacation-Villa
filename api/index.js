@@ -25,10 +25,11 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173", //for communicate with api
+    origin: ["http://localhost:5173", "https://vacation-villa.onrender.com"], // Add your deployed frontend URL here
     // origin: "http://127.0.0.1:5173", //for communicate with api
   })
 );
+
 
 // console.log(process.env.MONGO_URL)
 mongoose.connect(process.env.MONGO_URL);
