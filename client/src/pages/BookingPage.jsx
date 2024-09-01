@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom'
 import PlaceGallery from '../PlaceGallery';
 import BookingDates from '../BookingDates';
 
-
 function BookingPage() {
   const {id} = useParams();
   const [booking, setBooking] = useState(null);
