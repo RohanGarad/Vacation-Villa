@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import apiClient from "./api/axios";
-// import axios from "axios";
 import { useState } from "react";
+
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 export default function PhotosUploader({ addedPhotos, onChange }) {
   const [photoLink, setPhotoLink] = useState("");
@@ -69,7 +71,8 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
 
               <img
                 className="border border-black py-1 px-1 rounded-3xl h-32 w-full object-cover "
-                src={"http://localhost:4000/uploads/" + link}
+                // src={"http://localhost:4000/uploads/" + link}
+                src={`${apiUrl}/uploads/${link}`}
               />
 
               <button
@@ -166,3 +169,8 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
     </>
   );
 }
+
+PhotosUploader.propTypes = {
+  addedPhotos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onChange: PropTypes.func.isRequired,
+};

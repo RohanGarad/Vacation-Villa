@@ -61,7 +61,8 @@ import BookingsPage from "./pages/BookingsPage.jsx";
 import BookingPage from "./pages/BookingPage.jsx";
 
 // It sets up the apiClient to correctly point to your backend server running at http://localhost:4000 and ensures that credentials (like cookies) are sent along with requests.
-apiClient.defaults.baseURL = "http://localhost:4000";
+// apiClient.defaults.baseURL = "http://localhost:4000";
+apiClient.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 apiClient.defaults.withCredentials = true;
 
 function App() {
