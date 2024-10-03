@@ -34,8 +34,8 @@ export default function PlacesFormPage() {
       setDescription(data.description);
       setPerks(data.perks);
       setExtraInfo(data.extraInfo);
-      setCheckIn(data.checkIn)
-      setCheckOut(data.checkOut)
+      setCheckIn(data.checkIn);
+      setCheckOut(data.checkOut);
       setMaxGuests(data.maxGuests);
       setPrice(data.price);
     });
@@ -53,8 +53,8 @@ export default function PlacesFormPage() {
   function preInput(header, description) {
     return (
       <>
-        {inputHeader(header)}
-        {inputDescription(description)}
+        {inputHeader(header)};
+        {inputDescription(description)};
       </>
     );
   }
@@ -73,7 +73,7 @@ export default function PlacesFormPage() {
   }
 
   if(redirect) {
-    return <Navigate to={'/account/places'} />
+    return <Navigate to={'/account/places'} />;
   }
   
 
