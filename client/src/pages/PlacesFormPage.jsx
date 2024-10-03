@@ -53,8 +53,8 @@ export default function PlacesFormPage() {
   function preInput(header, description) {
     return (
       <>
-        {inputHeader(header)};
-        {inputDescription(description)};
+        {inputHeader(header)}
+        {inputDescription(description)}
       </>
     );
   }

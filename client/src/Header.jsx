@@ -178,13 +178,6 @@ export default function Header() {
           onMouseLeave={() => setShowLocationDropdown(false)}
         >
           Anywhere
-          {showLocationDropdown && (
-            <div className="absolute top-12 left-0 bg-white text-black p-2 rounded-lg shadow-lg">
-              <p className="p-2 hover:bg-gray-200 cursor-pointer">Location 1</p>
-              <p className="p-2 hover:bg-gray-200 cursor-pointer">Location 2</p>
-              <p className="p-2 hover:bg-gray-200 cursor-pointer">Location 3</p>
-            </div>
-          )}
         </div>
         <div className="border-l border-gray-700"></div>
         <div

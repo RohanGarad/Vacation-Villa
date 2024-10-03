@@ -400,6 +400,7 @@ app.get('/places/:id', async (req, res) => {
 
 app.put('/places', async (req, res) => {
   const { token } = req.cookies;
+  const { id, title, address, addedPhotos, description, perks, extraInfo, checkIn, checkOut, maxGuests, price } = req.body;
   if (!token) {
     return res.status(401).json({ message: "Token not provided" });
   }
